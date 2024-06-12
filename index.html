@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <script>
-      
-    </script>
+    
 </head>
 
 <body>
@@ -48,6 +46,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script>
+            document.getElementById('submitButton').addEventListener('click', async () => {
+                  const originalUrl = document.getElementById('originalUrl').value;
+                  const alias = document.getElementById('alias').value;
+       
+                  if (!originalUrl) {
+                      alert('Please enter a URL to shorten.');
+                      return;
+                  }
+       
+                  const response = await fetch('https://66696165e39c700af0a3.appwrite.global/v1/shorten', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify({
+                          original_url: originalUrl,
+                          alias: alias || undefined
+                      })
+                  });
+       
+                  const data = await response.json();
+       
+                  if (response.ok) {
+                      document.getElementById('response').innerHTML = `<p>Shortened URL: <a href="${data.short_url}" target="_blank">${data.short_url}</a></p>`;
+                  } else {
+                      document.getElementById('response').innerHTML = `<p>Error: ${data.message}</p>`;
+                  }
+              });
+          </script>
 
 </body>
 
