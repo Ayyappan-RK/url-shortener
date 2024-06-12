@@ -1,0 +1,32 @@
+*{
+    font-family: 'Open Sans';
+}
+.mainTitle {
+    font-family: 'Open Sans';
+    text-align: center;
+    margin: 30px auto;
+  }
+  
+ 
+  .container {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #f5f6f8;
+    background-color: #d1d1d1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+.input-field {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+.custom-container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    border-radius: 8px; 
+    background-color: #fff; 
+}
